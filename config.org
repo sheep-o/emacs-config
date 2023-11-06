@@ -1,3 +1,33 @@
+* Misc
+#+BEGIN_SRC emacs-lisp
+  (menu-bar-mode -1)
+  (toggle-scroll-bar -1)
+  (tool-bar-mode -1)
+  (blink-cursor-mode -1)
+  (global-hl-line-mode +1)
+  (line-number-mode +1)
+  (global-display-line-numbers-mode 1)
+  (column-number-mode t)
+  (size-indication-mode t)
+  (setq-default tab-width 4
+                indent-tabs-mode nil)
+  (add-hook 'before-save-hook 'whitespace-cleanup)
+#+END_SRC
+
+* Theme
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'custom-theme-load-path "~/.emacs.d/everforest-theme")
+  (load-theme 'everforest-hard-dark t)
+#+END_SRC
+
+* Dashboard
+#+BEGIN_SRC emacs-lisp
+  (use-package dashboard
+    :ensure t
+    :config
+    (dashboard-setup-startup-hook))
+#+END_SRC
+
 * Evil Mode
 #+BEGIN_SRC emacs-lisp
   (use-package evil

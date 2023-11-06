@@ -1,3 +1,24 @@
+(menu-bar-mode -1)
+(toggle-scroll-bar -1)
+(tool-bar-mode -1)
+(blink-cursor-mode -1)
+(global-hl-line-mode +1)
+(line-number-mode +1)
+(global-display-line-numbers-mode 1)
+(column-number-mode t)
+(size-indication-mode t)
+(setq-default tab-width 4
+              indent-tabs-mode nil)
+(add-hook 'before-save-hook 'whitespace-cleanup)
+
+(add-to-list 'custom-theme-load-path "~/.emacs.d/everforest-theme")
+(load-theme 'everforest-hard-dark t)
+
+(use-package dashboard
+  :ensure t
+  :config
+  (dashboard-setup-startup-hook))
+
 (use-package evil
   :ensure t
   :init
@@ -16,18 +37,18 @@
   (evil-collection-init))
 
 (use-package org-bullets
-:ensure t
-:config
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode))))
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode))))
 
 (setq org-startup-indented t
-      org-ellipsis "  "
-      org-pretty-entities t
-      org-hide-emphasis-markers t
-      org-agenda-block-separator ""
-      org-fontify-whole-heading-line t
-      org-fontify-done-headline t
-      org-fontify-quote-and-verse-blocks t)
+   org-ellipsis "  "
+   org-pretty-entities t
+   org-hide-emphasis-markers t
+   org-agenda-block-separator ""
+   org-fontify-whole-heading-line t
+   org-fontify-done-headline t
+   org-fontify-quote-and-verse-blocks t)
 
 (add-hook 'org-mode-hook (lambda ()
    "Beautify Org Checkbox Symbol"
